@@ -1,11 +1,14 @@
 FROM alpine
 
 RUN apk update
+RUN apk upgrade
 RUN apk add mysql mysql-client
 RUN apk add openrc
-RUN chown -R www:www /etc
+
 VOLUME [ "/var/lib/mysql" ]
 COPY ./start.sh ./
-COPY ./mysql.cnf /etc/my.cnf.d/mariadb-server.cnf
+COPY ./mariadb-server.cnf /etc/my.cnf.d/
 
-CMD sh start.sh
+ENTRYPOINT ["sh","start.sh"]
+
+EXPOSE 3306

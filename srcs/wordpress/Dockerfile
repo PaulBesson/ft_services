@@ -1,6 +1,7 @@
 FROM alpine
 
 RUN apk update
+RUN apk upgrade
 RUN apk add wget
 RUN apk add nginx
 RUN apk add openrc

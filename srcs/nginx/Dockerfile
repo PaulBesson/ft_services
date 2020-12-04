@@ -21,6 +21,6 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj \
     -keyout /etc/ssl/certs/localhost.key -out \
     /etc/ssl/certs/localhost.crt
 
-EXPOSE 80 443
-
 CMD nginx -g 'pid /tmp/nginx.pid; daemon off;'
+
+EXPOSE 80 443
