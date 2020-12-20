@@ -1,36 +1,36 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: phpmyadmin
+  name: ftps
   labels:
-    app: phpmyadmin
+    app: ftps
 spec:
   type: LoadBalancer
   selector:
-    app: phpmyadmin
+    app: ftps
   ports:
     - name: http
-      port: 5000
-      targetPort: 5000
-  loadBalancerIP: 192.168.49.232
+      port: 21
+      targetPort: 21
+  loadBalancerIP: 192.168.49.233
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyadmin
+  name: ftps
   labels:
-    app: phpmyadmin
+    app: ftps
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: phpmyadmin
+      app: ftps
   template:
     metadata:
       labels:
-        app: phpmyadmin
+        app: ftps
     spec:
       containers:
-        - name: phpmyadmin
-          image: service_phpmyadmin
+        - name: ftps
+          image: service_ftps
           imagePullPolicy: Never

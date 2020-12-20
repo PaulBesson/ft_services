@@ -8,7 +8,6 @@ rc-service mariadb start
 
 echo "CREATE DATABASE wordpress;" | mysql -u root # on cree la base de donnee
 echo "CREATE USER 'admin'@'%' IDENTIFIED BY 'password';" | mysql -u root # on cree l'user
-#echo "SET PASSWORD FOR %=PASSWORD('password');" | mysql -u root # le mot de passe
 echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'admin'@'%';" | mysql -u root # le privileges (root)
 echo "FLUSH PRIVILEGES;" | mysql -u root
 rc-service mariadb restart

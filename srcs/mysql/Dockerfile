@@ -5,7 +5,7 @@ RUN apk upgrade
 RUN apk add mysql mysql-client
 RUN apk add openrc
 
-VOLUME [ "/var/lib/mysql" ]
+#VOLUME [ "/var/lib/mysql" ]
 COPY ./start.sh ./
 COPY ./mariadb-server.cnf /etc/my.cnf.d/
 

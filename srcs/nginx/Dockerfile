@@ -18,8 +18,8 @@ COPY ./index/WordPress_blue_logo.png /var/www/
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj \
     '/C=FR/ST=Auvergne-Rhone-Alpes/L=Lyon/emailAddress=pbesson@student.42lyon.fr' \
-    -keyout /etc/ssl/certs/localhost.key -out \
-    /etc/ssl/certs/localhost.crt
+    -keyout /etc/ssl/certs/localhost.key \
+	-out /etc/ssl/certs/localhost.crt
 
 CMD nginx -g 'pid /tmp/nginx.pid; daemon off;'
 
