@@ -22,6 +22,11 @@ COPY ./wp-config.php /usr/share/webapps/wordpress/wp-config.php
 
 RUN openrc
 RUN touch /run/openrc/softlevel
-CMD php-fpm7; nginx -g 'pid /tmp/nginx.pid; daemon off;'
+
+RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linux_amd64.tar.gz
+RUN tar -zxvf telegraf-1.13.3-static_linux_amd64.tar.gz
+COPY telegraf.conf etc/telegraf/telegraf.conf
+
+CMD ./telegraf/telegraf & php-fpm7; nginx -g 'pid /tmp/nginx.pid; daemon off;'
 
 EXPOSE 5050

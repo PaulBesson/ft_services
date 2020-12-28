@@ -21,6 +21,11 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj \
     -keyout /etc/ssl/certs/localhost.key \
 	-out /etc/ssl/certs/localhost.crt
 
-CMD nginx -g 'pid /tmp/nginx.pid; daemon off;'
+#telegraf
+RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linux_amd64.tar.gz
+RUN tar -zxvf telegraf-1.13.3-static_linux_amd64.tar.gz
+COPY telegraf.conf etc/telegraf/telegraf.conf
+
+CMD ./telegraf/telegraf & nginx -g 'pid /tmp/nginx.pid; daemon off;'
 
 EXPOSE 80 443
