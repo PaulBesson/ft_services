@@ -21,19 +21,20 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -subj \
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 COPY script.sh ./
 
+VOLUME [ “/sys/fs/cgroup” ]
+RUN chmod 777 /sys/fs/cgroup
+
 RUN openrc
 RUN touch /run/openrc/softlevel
 
-RUN addgroup sftp_users
+RUN addgroup ftps_users
 RUN adduser -D -g 'password' User
-#RUN passwd Password
+##RUN passwd Password
 
-#add user to group
-RUN addgroup User sftp_users
-#add default folder (comented)
-#RUN addgroup -d /var/www User
-
-VOLUME [ “/sys/fs/cgroup” ]
+##add user to group
+RUN addgroup User ftps_users
+##add default folder (comented)
+##RUN addgroup -d /var/www User
 
 EXPOSE 21
 

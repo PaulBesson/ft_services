@@ -15,7 +15,7 @@ COPY ./index/style.css /var/www/
 COPY ./index/docker_background.jpg /var/www/
 COPY ./index/mysql-logo.png /var/www/
 COPY ./index/WordPress_blue_logo.png /var/www/
-COPY ./index/42_Logo.png /var/www/
+COPY ./index/42_logo.png /var/www/
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj \
     '/C=FR/ST=Auvergne-Rhone-Alpes/L=Lyon/emailAddress=pbesson@student.42lyon.fr' \
