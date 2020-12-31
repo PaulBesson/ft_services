@@ -3,6 +3,7 @@ FROM alpine
 RUN apk update
 RUN apk upgrade
 RUN apk add nginx
+RUN apk add php7-mbstring
 RUN apk add php7-common php7-iconv php7-json php7-gd php7-curl
 RUN apk add php7-xml php7-mysqli php7-imap php7-cgi fcgi php7-pdo
 RUN apk add php7-pdo_mysql php7-soap php7-xmlrpc php7-posix
@@ -30,6 +31,9 @@ RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linu
 RUN tar -zxvf telegraf-1.13.3-static_linux_amd64.tar.gz
 
 COPY telegraf.conf etc/telegraf/telegraf.conf
+
+RUN mkdir /usr/share/webapps/phpmyadmin/tmp
+RUN chmod -R 777 /usr/share/webapps/phpmyadmin/tmp/
 
 CMD ./telegraf/telegraf & php-fpm7; nginx -g 'pid /tmp/nginx.pid; daemon off;'
 

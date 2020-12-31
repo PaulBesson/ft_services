@@ -22,7 +22,7 @@ COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 COPY script.sh ./
 
 VOLUME [ “/sys/fs/cgroup” ]
-RUN chmod 777 /sys/fs/cgroup
+RUN chmod 755 /sys/fs/cgroup
 
 RUN openrc
 RUN touch /run/openrc/softlevel

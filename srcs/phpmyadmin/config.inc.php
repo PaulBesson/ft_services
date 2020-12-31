@@ -26,6 +26,7 @@ $i = 0;
  */
 $i++;
 /* Authentication type */
+$cfg['blowfish_secret'] = 'DjAY.W:kMmIXuTseC4XWCHnfjH0xqBQK';
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = '10.99.99.99';
