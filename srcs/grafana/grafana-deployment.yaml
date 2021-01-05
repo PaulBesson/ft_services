@@ -34,3 +34,4 @@ spec:
         - name: grafana
           image: service_grafana
           imagePullPolicy: Never
+      restartPolicy: Always

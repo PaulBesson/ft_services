@@ -34,3 +34,4 @@ spec:
         - name: phpmyadmin
           image: service_phpmyadmin
           imagePullPolicy: Never
+      restartPolicy: Always

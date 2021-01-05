@@ -36,5 +36,5 @@ spec:
       containers:
         - name: nginx
           image: service_nginx
-		  imagePullPolicy: Never
-		restartPolicy: Always
+          imagePullPolicy: Never
+      restartPolicy: Always

@@ -34,3 +34,4 @@ spec:
         - name: ftps
           image: service_ftps
           imagePullPolicy: Never
+      restartPolicy: Always

@@ -22,19 +22,9 @@ COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 COPY script.sh ./
 
 VOLUME [ “/sys/fs/cgroup” ]
-RUN chmod 755 /sys/fs/cgroup
 
 RUN openrc
 RUN touch /run/openrc/softlevel
-
-RUN addgroup ftps_users
-RUN adduser -D -g 'password' User
-##RUN passwd Password
-
-##add user to group
-RUN addgroup User ftps_users
-##add default folder (comented)
-##RUN addgroup -d /var/www User
 
 EXPOSE 21
 
