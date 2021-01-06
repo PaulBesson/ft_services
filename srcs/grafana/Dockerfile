@@ -10,6 +10,8 @@ RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linu
 RUN tar -zxvf telegraf-1.13.3-static_linux_amd64.tar.gz
 COPY telegraf.conf etc/telegraf/telegraf.conf
 
+COPY ./grafana.db grafana-7.3.6/data/grafana.db
+
 CMD ./telegraf/telegraf & cd ./grafana-7.3.6/bin; ./grafana-server
 
 EXPOSE 3000

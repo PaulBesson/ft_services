@@ -21,15 +21,21 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -subj \
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 COPY script.sh ./
 
-VOLUME [ “/sys/fs/cgroup” ]
-
 RUN openrc
 RUN touch /run/openrc/softlevel
 
-EXPOSE 21
+EXPOSE 21 10000
 
 RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linux_amd64.tar.gz
 RUN tar -zxvf telegraf-1.13.3-static_linux_amd64.tar.gz
 COPY telegraf.conf etc/telegraf/telegraf.conf
+
+RUN adduser -D admin
+RUN echo "admin:password" | chpasswd
+RUN touch /home/admin/test.txt
+
+
+COPY vsftpd.userlist /etc/vsftpd.userlist
+
 
 CMD ./telegraf/telegraf & bash script.sh

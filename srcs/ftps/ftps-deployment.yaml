@@ -12,6 +12,9 @@ spec:
     - name: http
       port: 21
       targetPort: 21
+    - name: pasv
+      port: 10000
+      targetPort: 10000
   loadBalancerIP: 192.168.49.233
 ---
 apiVersion: apps/v1
