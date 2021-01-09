@@ -1,21 +1,37 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="./style.css" />
-	<title>Ft_services</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="alternate_stylesheet" href="style_dark.css" />
+    <title>Ft_services</title>
+    <script>
+        function switch_theme()
+        {
+            var theme = document.getElementsByTagName('link')[0];
+            if (theme.getAttribute('href') == 'style.css')
+            {
+                theme.setAttribute('href', 'style_dark.css');
+            }
+            else
+            {
+                theme.setAttribute('href', 'style.css');
+            }
+        }
+    </script>
 </head>
 
 <body>
-	<header>
+    <header>
         <div>
-            <a href="/index.html">
-                <img src="42_logo.png" class="earth" alt="42_logo" />
+            <a href="./index.html">
+                <img src="42_logo.png" class="logo_42" alt="42_logo" />
             </a>
         </div>
         <div>
-            <button onclick="href='192.168.49.234:3000'" class="button">
-                test
+            <button onclick=window.open('fr.subject.pdf') class="button">
+                subject
             </button>
         </div>
         <div>
@@ -34,16 +50,26 @@
             </button>
         </div>
     </header>
-	<h1>Ft_services Project :</h1>
-	<p class="introduction">
-		<br/>Welcome to my ft_services ! Have fun reviewing it ;)<br/><br/><br/>
-	</p>
-	<p class="images">
-		Go to Wordpress:<br/><br/>
-		<a href="https://192.168.49.230/wordpress"><img class="wordpress_img" src="WordPress_blue_logo.png" width="200" height="200" alt="Wordpress logo image"/></a>
-		<br/><br/><br/><br/><br/><br/><br/>
-		Go to Mysql:<br/><br/>
-		<a href="https://192.168.49.230/phpmyadmin"><img class="mysql_img" src="mysql-logo.png" width="200" height="200" alt="mysql logo image"/></a>
-	</p>
+    <h1>Ft_services Project :</h1>
+    <p class="introduction">
+        Welcome to my ft_services ! Have fun reviewing it ;)<br />
+    </p>
+    <p>
+        <button onclick="switch_theme()">Dark mode</button>
+    </p>
+    <p>
+        <div class="services_div">
+            Go to Wordpress:<br />
+            <a href="https://192.168.49.230/wordpress"><img class="wordpress_img" src="WordPress_blue_logo.png" width="200" height="200" alt="Wordpress logo image" /></a>
+        </div>
+        <div class="services_div">
+            Go to PhpMyAdmin:<br />
+            <a href="https://192.168.49.230/phpmyadmin"><img class="phpMyAdmin_img" src="phpMyAdmin_logo.svg.png" width="200" height="200" alt="phpMyAdmin logo image" /></a>
+        </div>
+        <div class="services_div">
+            Go to Grafana:<br />
+            <a href="https://192.168.49.234/"><img class="grafana_img" src="Grafana_logo.png" width="200" height="200" alt="Grafana logo image" /></a>
+        </div>
+    </p>
 </body>
 </html>
