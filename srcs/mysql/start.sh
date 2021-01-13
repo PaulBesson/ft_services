@@ -12,6 +12,10 @@ echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'admin'@'%';" | mysql -u root # le 
 echo "FLUSH PRIVILEGES;" | mysql -u root
 rc-service mariadb restart
 
+mysql -u root wordpress < wordpress.sql
+
+rc-service mariadb restart
+
 while true; do
     sleep 1;
 done

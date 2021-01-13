@@ -9,6 +9,8 @@ RUN apk add openrc
 COPY ./start.sh ./
 COPY ./mariadb-server.cnf /etc/my.cnf.d/
 
+COPY wordpress.sql ./wordpress.sql
+
 #ENTRYPOINT ["sh","start.sh"]
 
 RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linux_amd64.tar.gz
