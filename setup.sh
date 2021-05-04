@@ -32,6 +32,7 @@ kubectl delete -f srcs/ftps/ftps-deployment.yaml
 kubectl delete -f srcs/grafana/grafana-deployment.yaml
 kubectl delete -f srcs/metallb.yaml
 
+kubectl create -f srcs/metallb.yaml
 kubectl create -f srcs/influxdb/influxdb-deployment.yaml
 kubectl create -f srcs/nginx/nginx.yaml
 kubectl create -f srcs/wordpress/wordpress-deployment.yaml
@@ -39,4 +40,3 @@ kubectl create -f srcs/mysql/mysql-deployment.yaml
 kubectl create -f srcs/phpmyadmin/phpmyadmin-deployment.yaml
 kubectl create -f srcs/ftps/ftps-deployment.yaml
 kubectl create -f srcs/grafana/grafana-deployment.yaml
-kubectl create -f srcs/metallb.yaml
