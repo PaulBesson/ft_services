@@ -36,4 +36,6 @@ spec:
         - name: phpmyadmin
           image: service_phpmyadmin
           imagePullPolicy: Never
+          ports:
+          - containerPort: 5000
       restartPolicy: Always
