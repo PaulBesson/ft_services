@@ -1,7 +1,7 @@
 FROM alpine:3.12
 
-RUN apk update
-RUN apk upgrade
+RUN apk update --no-cache
+RUN apk upgrade --no-cache
 RUN apk add wget
 RUN apk add nginx
 RUN apk add openrc
