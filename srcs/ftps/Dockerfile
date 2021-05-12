@@ -21,8 +21,8 @@ RUN mkdir -p /etc/vsftpd/ssl
 COPY ./vsftpd.conf /etc/vsftpd/vsftpd.conf
 COPY ./vsftpd.userlist ./etc/vsftpd.userlist
 RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linux_amd64.tar.gz
-RUN tar -xvf telegraf-1.13.3-static_linux_amd64.tar.gz
-COPY ./telegraf.conf etc/telegraf/telegraf.conf
+RUN tar -zxvf telegraf-1.13.3-static_linux_amd64.tar.gz
+COPY telegraf.conf etc/telegraf/telegraf.conf
 
 RUN touch home/admin/test.txt
 

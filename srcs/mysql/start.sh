@@ -6,9 +6,9 @@ touch /run/openrc/softlevel
 openrc
 rc-service mariadb start
 
-echo "CREATE DATABASE wordpress;" | mysql -u root # on cree la base de donnee
-echo "CREATE USER 'admin'@'%' IDENTIFIED BY 'password';" | mysql -u root # on cree l'user
-echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'admin'@'%';" | mysql -u root # le privileges (root)
+echo "CREATE DATABASE wordpress;" | mysql -u root # create database
+echo "CREATE USER 'admin'@'%' IDENTIFIED BY 'password';" | mysql -u root # user
+echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'admin'@'%';" | mysql -u root # user = root
 echo "FLUSH PRIVILEGES;" | mysql -u root
 rc-service mariadb restart
 
