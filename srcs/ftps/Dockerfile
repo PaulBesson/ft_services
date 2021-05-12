@@ -24,6 +24,8 @@ RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linu
 RUN tar -xvf telegraf-1.13.3-static_linux_amd64.tar.gz
 COPY ./telegraf.conf etc/telegraf/telegraf.conf
 
+RUN touch home/admin/test.txt
+
 COPY ./script.sh /script.sh
 RUN chmod +x /script.sh
 
